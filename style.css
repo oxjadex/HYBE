@@ -1,10 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 #background-container {
@@ -32,16 +35,8 @@ body {
 
 .playBtn {
   width: 100px;
-} /* 기존 스타일은 그대로 유지하고 아래 스타일을 추가 또는 수정합니다 */
-/* 기존 스타일은 그대로 유지하고 아래 스타일을 추가 또는 수정합니다 */
-
-.header-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
 }
+
 .header-wrapper {
   position: fixed;
   top: 0;
@@ -100,12 +95,12 @@ nav {
 }
 
 .header-wrapper:hover .mega-dropdown-background {
-  height: 40vh; /* 뷰포트 높이만큼 설정 */
+  height: 40vh;
 }
 
 .mega-dropdown {
   position: absolute;
-  top: 100%; /* 헤더 바로 아래에 위치 */
+  top: 100%;
   left: 0;
   width: 100%;
   opacity: 0;
@@ -125,20 +120,51 @@ nav {
 
 .dropdown-content {
   display: flex;
-  justify-content: space-around;
-  max-width: 1200px;
+  justify-content: flex-end; /* 오른쪽 정렬로 변경 */
+  max-width: 1200px; /* 전체 너비로 확장 */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
-/* 드롭다운 내부 스타일은 그대로 유지 */
+.dropdown-section {
+  flex: 0 1 auto; /* flex-grow를 0으로 설정하여 내용에 맞게 크기 조정 */
+  margin-left: 60px; /* 섹션 사이의 간격 조정 */
+}
+
+.dropdown-section:first-child {
+  margin-left: 0; /* 첫 번째 섹션의 왼쪽 마진 제거 */
+}
+
+/* 각 섹션의 너비를 조정 */
+.dropdown-section:nth-child(1) {
+  width: 100px;
+}
+.dropdown-section:nth-child(2) {
+  width: 150px;
+}
+.dropdown-section:nth-child(3) {
+  width: 100px;
+}
+.dropdown-section:nth-child(4) {
+  width: 100px;
+}
+
+/* 드롭다운 메뉴 전체를 오른쪽으로 이동 */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  padding-left: 120px;
+}
 .dropdown-section {
   flex: 1;
-}
-
-.dropdown-section h3 {
-  color: white;
-  margin-bottom: 20px;
 }
 
 .dropdown-section ul {
@@ -159,10 +185,10 @@ nav {
 .dropdown-section ul li a:hover {
   color: white;
 }
+
 .vertical-line {
   border-left: 2px solid white;
   height: 80vh;
-  width: 2px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -175,11 +201,6 @@ nav {
 
 .right {
   right: 30px;
-}
-
-.language-switch {
-  font-weight: bold;
-  color: #333;
 }
 
 .main-content {
@@ -204,32 +225,15 @@ nav {
   border: 0;
 }
 
-.details {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.details img {
-  width: 200px;
-  margin-right: 20px;
-  border-radius: 10px;
-}
-
-.details .info h1 {
-  font-size: 36px;
-  margin: 0;
-}
-
 footer {
   position: fixed;
   bottom: 0;
-  background-color: transparent;
   width: 100%;
+  background-color: transparent;
+  padding: 20px 30px;
 }
 
 .footer-content {
-  padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -242,10 +246,7 @@ footer {
 .footer-content ul {
   list-style: none;
   display: flex;
-}
-
-.footer-content ul li {
-  margin: 0 15px;
+  gap: 20px;
 }
 
 .footer-content ul li a {
