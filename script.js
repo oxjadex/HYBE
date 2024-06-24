@@ -77,19 +77,29 @@ let currentIndex = 0;
 function updatePageInfo() {
   const pageInfo = document.getElementById("pageInfo");
   pageInfo.textContent = `${currentIndex + 1} / ${mediaItems.length}`;
-}function updateBackground() {
+
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex === mediaItems.length - 1;
+
+  prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
+  nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
+}
+function updateBackground() {
   const backgroundContainer = document.getElementById("background-container");
   backgroundContainer.style.backgroundImage = `url(${mediaItems[currentIndex].url})`;
-  updatePageInfo(); // 여기에 updatePageInfo() 호출 추가
+  updatePageInfo();
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+  currentIndex = (currentIndex -- + mediaItems.length) % mediaItems.length;
   updateBackground();
 });
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % mediaItems.length;
+  currentIndex = (currentIndex ++ ) % mediaItems.length;
   updateBackground();
 });
 
@@ -121,4 +131,21 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 
 updateBackground();
 
-// 기존의 다른 JavaScript 코드는 그대로 유지
+document.getElementById("logo-link").addEventListener("click", function (e) {
+  e.preventDefault(); // 기본 링크 동작 방지
+
+  // 비디오 컨테이너 숨기기
+  const videoContainer = document.getElementById("video-container");
+  videoContainer.style.display = "none";
+
+  // 배경 컨테이너 다시 표시
+  const backgroundContainer = document.getElementById("background-container");
+  backgroundContainer.style.display = "block";
+
+  // 첫 번째 이미지로 돌아가기
+  currentIndex = 0;
+  updateBackground();
+
+  // 오버레이 다시 표시
+  document.getElementById("overlay").style.display = "flex";
+});

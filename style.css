@@ -45,6 +45,9 @@ body {
   z-index: 1000;
 }
 
+#pagination button:disabled {
+  cursor: not-allowed;
+}
 #pagination button {
   width: 30px;
   height: 30px;
