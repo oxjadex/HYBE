@@ -37,6 +37,30 @@ body {
   width: 100px;
 }
 
+#pagination {
+  position: fixed;
+  bottom: 224px;
+  left: 17.5%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+#pagination button {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  background-color: transparent;
+  border: 0.5px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+#pageInfo {
+  color: white;
+  font-size: 14px;
+  margin: 0 15px;
+}
+
 .header-wrapper {
   position: fixed;
   top: 0;
