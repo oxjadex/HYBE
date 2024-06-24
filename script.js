@@ -36,3 +36,19 @@ document.querySelectorAll(".dropdown").forEach(function (dropdown) {
     this.style.display = "none";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const headerWrapper = document.querySelector(".header-wrapper");
+  let timeoutId;
+
+  headerWrapper.addEventListener("mouseenter", function () {
+    clearTimeout(timeoutId);
+    headerWrapper.classList.add("active");
+  });
+
+  headerWrapper.addEventListener("mouseleave", function () {
+    timeoutId = setTimeout(function () {
+      headerWrapper.classList.remove("active");
+    }, 200); // 200ms의 지연 시간을 줍니다. 필요에 따라 조정 가능합니다.
+  });
+});
