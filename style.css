@@ -32,7 +32,7 @@ body {
 
 .playBtn {
   width: 100px;
-}/* 기존 스타일은 그대로 유지하고 아래 스타일을 추가 또는 수정합니다 */
+} /* 기존 스타일은 그대로 유지하고 아래 스타일을 추가 또는 수정합니다 */
 /* 기존 스타일은 그대로 유지하고 아래 스타일을 추가 또는 수정합니다 */
 
 .header-wrapper {
@@ -42,11 +42,18 @@ body {
   width: 100%;
   z-index: 1000;
 }
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
 header {
-  background-color: transparent;
   padding: 20px 0;
-  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1002;
 }
 
 .container {
@@ -81,20 +88,33 @@ nav {
 .nav-item img {
   height: 16px;
 }
-.mega-dropdown {
+
+.mega-dropdown-background {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  padding-top: 20px;
-  padding-bottom: 40px;
+  transition: height 0.3s ease;
+}
+
+.header-wrapper:hover .mega-dropdown-background {
+  height: 40vh; /* 뷰포트 높이만큼 설정 */
+}
+
+.mega-dropdown {
+  position: absolute;
+  top: 100%; /* 헤더 바로 아래에 위치 */
+  left: 0;
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
 }
 
-.header-wrapper.active .mega-dropdown {
+.header-wrapper:hover .mega-dropdown {
   opacity: 1;
   visibility: visible;
 }
