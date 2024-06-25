@@ -6,6 +6,10 @@ document.getElementById("overlay").addEventListener("click", function () {
   videoContainer.style.justifyContent = "center";
   videoContainer.style.alignItems = "center";
   videoContainer.style.height = "80vh";
+  videoContainer.style.position = "fixed";
+  videoContainer.style.top = "50%";
+  videoContainer.style.left = "50%";
+  videoContainer.style.transform = "translate(-50%, -50%)";
 
   var backgroundContainer = document.getElementById("background-container");
   backgroundContainer.style.display = "none";
