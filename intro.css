@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://img.youtube.com/vi/m6pTbEz4w3o/maxresdefault.jpg")
+    no-repeat center center/cover;
+  z-index: -1;
+}
+
+#overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.playBtn {
+  width: 100px;
+}
+
+#pagination {
+  position: fixed;
+  bottom: 224px;
+  left: 17.5%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+#pagination button:disabled {
+  cursor: not-allowed;
+}
+#pagination button {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  background-color: transparent;
+  border: 0.5px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+#pageInfo {
+  color: white;
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header {
+  padding: 20px 0;
+  position: relative;
+  z-index: 1002;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 18px;
+}
+
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item img {
+  height: 16px;
+}
+
+.mega-dropdown-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: height 0.3s ease;
+}
+
+.header-wrapper:hover .mega-dropdown-background {
+  height: 40vh;
+}
+
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
+}
+
+.header-wrapper:hover .mega-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-wrapper.active header {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dropdown-content {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬로 변경 */
+  max-width: 1200px; /* 전체 너비로 확장 */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dropdown-section {
+  flex: 0 1 auto; /* flex-grow를 0으로 설정하여 내용에 맞게 크기 조정 */
+  margin-left: 60px; /* 섹션 사이의 간격 조정 */
+}
+
+.dropdown-section:first-child {
+  margin-left: 0; /* 첫 번째 섹션의 왼쪽 마진 제거 */
+}
+
+/* 각 섹션의 너비를 조정 */
+.dropdown-section:nth-child(1) {
+  width: 100px;
+}
+.dropdown-section:nth-child(2) {
+  width: 150px;
+}
+.dropdown-section:nth-child(3) {
+  width: 100px;
+}
+.dropdown-section:nth-child(4) {
+  width: 100px;
+}
+
+/* 드롭다운 메뉴 전체를 오른쪽으로 이동 */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  padding-left: 120px;
+}
+.dropdown-section {
+  flex: 1;
+}
+
+.dropdown-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-section ul li {
+  margin-bottom: 10px;
+}
+
+.dropdown-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-section ul li a:hover {
+  color: white;
+}
+
+.vertical-line {
+  border-left: 2px solid white;
+  height: 80vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 72px;
+  margin: 0;
+}
+
+.hero hr {
+  width: 60%;
+  margin: 20px auto;
+  border: 0;
+  border-top: 2px solid #333;
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.hero img {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+}
+
+.vertical-menu {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.vertical-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vertical-menu ul li {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin: 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.hero {
+  padding: 200px;
+}
+#WE {
+  width: 50%;
+  padding: 0px;
+  text-align: left; /* 이미지를 왼쪽에 붙이기 위해 추가 */
+  margin-left: 0; /* 왼쪽 마진을 0으로 설정 */
+  padding-bottom: 40px;
+}
+
+.vertical-line-bottom {
+  border-bottom: 2px solid black;
+  width: 80vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+#line {
+  border: 1px solid black;
+  width: 100%;
+  height: 1px;
+}
+
+#who {
+  width: 300px;
+  padding-top: 80px;
+  text-align: left; 
+}
