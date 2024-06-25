@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   headerWrapper.addEventListener("mouseleave", function () {
     timeoutId = setTimeout(function () {
       headerWrapper.classList.remove("active");
-    }, 200); // 200ms의 지연 시간을 줍니다. 필요에 따라 조정 가능합니다.
+    }, 200);
   });
 });
 
@@ -73,7 +73,6 @@ const mediaItems = [
 
 let currentIndex = 0;
 
-
 function updatePageInfo() {
   const pageInfo = document.getElementById("pageInfo");
   pageInfo.textContent = `${currentIndex + 1} / ${mediaItems.length}`;
@@ -87,6 +86,7 @@ function updatePageInfo() {
   prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
   nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
 }
+
 function updateBackground() {
   const backgroundContainer = document.getElementById("background-container");
   backgroundContainer.style.backgroundImage = `url(${mediaItems[currentIndex].url})`;
@@ -94,12 +94,12 @@ function updateBackground() {
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex -- + mediaItems.length) % mediaItems.length;
+  currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
   updateBackground();
 });
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex ++ ) % mediaItems.length;
+  currentIndex = (currentIndex + 1) % mediaItems.length;
   updateBackground();
 });
 
@@ -119,33 +119,17 @@ function playVideo() {
 
 document.getElementById("overlay").addEventListener("click", playVideo);
 
-document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
-  updateBackground();
-});
-
-document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % mediaItems.length;
-  updateBackground();
-});
-
-updateBackground();
-
 document.getElementById("logo-link").addEventListener("click", function (e) {
-  e.preventDefault(); // 기본 링크 동작 방지
+  e.preventDefault();
 
-  // 비디오 컨테이너 숨기기
   const videoContainer = document.getElementById("video-container");
   videoContainer.style.display = "none";
 
-  // 배경 컨테이너 다시 표시
   const backgroundContainer = document.getElementById("background-container");
   backgroundContainer.style.display = "block";
 
-  // 첫 번째 이미지로 돌아가기
   currentIndex = 0;
   updateBackground();
 
-  // 오버레이 다시 표시
   document.getElementById("overlay").style.display = "flex";
 });

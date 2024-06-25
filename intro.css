@@ -16,8 +16,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("https://img.youtube.com/vi/m6pTbEz4w3o/maxresdefault.jpg")
-    no-repeat center center/cover;
+  background: url("https://img.youtube.com/vi/m6pTbEz4w3o/maxresdefault.jpg") no-repeat center center/cover;
   z-index: -1;
 }
 
@@ -48,6 +47,7 @@ body {
 #pagination button:disabled {
   cursor: not-allowed;
 }
+
 #pagination button {
   width: 30px;
   height: 30px;
@@ -147,49 +147,43 @@ nav {
 
 .dropdown-content {
   display: flex;
-  justify-content: flex-end; /* 오른쪽 정렬로 변경 */
-  max-width: 1200px; /* 전체 너비로 확장 */
+  justify-content: flex-end;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .dropdown-section {
-  flex: 0 1 auto; /* flex-grow를 0으로 설정하여 내용에 맞게 크기 조정 */
-  margin-left: 60px; /* 섹션 사이의 간격 조정 */
+  flex: 0 1 auto;
+  margin-left: 60px;
 }
 
 .dropdown-section:first-child {
-  margin-left: 0; /* 첫 번째 섹션의 왼쪽 마진 제거 */
+  margin-left: 0;
 }
 
-/* 각 섹션의 너비를 조정 */
 .dropdown-section:nth-child(1) {
   width: 100px;
 }
+
 .dropdown-section:nth-child(2) {
   width: 150px;
 }
+
 .dropdown-section:nth-child(3) {
   width: 100px;
 }
+
 .dropdown-section:nth-child(4) {
   width: 100px;
 }
 
-/* 드롭다운 메뉴 전체를 오른쪽으로 이동 */
 .mega-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1001;
   display: flex;
-  justify-content: flex-end; /* 오른쪽 정렬 */
+  justify-content: flex-end;
   padding-left: 120px;
 }
+
 .dropdown-section {
   flex: 1;
 }
@@ -275,11 +269,12 @@ nav {
 .hero {
   padding: 200px;
 }
+
 #WE {
   width: 50%;
   padding: 0px;
-  text-align: left; /* 이미지를 왼쪽에 붙이기 위해 추가 */
-  margin-left: 0; /* 왼쪽 마진을 0으로 설정 */
+  text-align: left;
+  margin-left: 0;
   padding-bottom: 40px;
 }
 
@@ -304,6 +299,7 @@ nav {
   margin-top: 30px;
   text-align: left;
 }
+
 #line {
   border: 1px solid black;
   width: 100%;
@@ -313,5 +309,18 @@ nav {
 #who {
   width: 300px;
   padding-top: 80px;
-  text-align: left; 
+  text-align: left;
+}
+
+.vertical-line {
+  border-left: 2px solid white;
+  height: 80vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.left {
+  left: 30px;
 }
