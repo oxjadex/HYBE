@@ -291,9 +291,18 @@ nav {
   bottom: 0;
   margin: auto;
 }
+
 .bottom {
   display: flex;
   justify-content: space-between;
+}
+
+.bott {
+  text-align: right;
+  padding-left: 270px;
+  color: black;
+  margin-top: 30px;
+  text-align: left;
 }
 #line {
   border: 1px solid black;
